@@ -141,14 +141,110 @@
 
     <section id="grid" class="grid" aria-live="polite">
       <!-- Post Card Template examples -->
-     <article class="card" data-tags="vlsi" data-title="Input files for PD">
+     
+      <article class="card" data-tags="vlsi" data-title="Input files for PD">
+        <img src="./assets/IMAGES/ASIC flow.png" alt="Inputs" width="350" height="250"loading="lazy" />
+        <div class="content">
+          <div class="eyebrow">COREBlog</div>
+          <h3 class="title">ASIC Flow</h3>
+          <p class="excerpt">The term ASIC stands for Application Specific Integrated Circuits.  It is the process of manufacturing a chip in a methodical manner.  This flow belongs to the semi-custom VLSI design style.  ASIC flow is divided into two domains: frontend and backend.</p>
+          <span class="readmore" onclick="toggleContent('card1')">Read More</span></p></div>
+       <div id="card1" class="full-content hidden">
+        <ul>
+            <li>ASIC FLOW:</li>
+           <ol>
+            <li>Specifications</li>
+            <li>Architecture Design</li>
+            <li>RTL Design</li>
+            <li>RTL Verification/Design Verification</li>
+            <li>Synthesis</li>
+            <li>DFT</li>
+            <li>FloorPlanning</li>
+            <li>PowerPlanning</li>
+            <li>Placement</li>
+            <li>CTS(Clock-Tree Synthesis)</li>
+            <li>Routing</li>
+            <li>Signoff</li>
+            <li>Fabrication</li>
+            <li>Packaging and Testing</li>
+          </ol>
+          <ol>
+            <li><h2>Specifications:</li></h2>       
+            <p>In this stage, We define the new features of the chip like high speed, Low-power consumption. This chip feature information will be acquired from the marketing team.</p>
+             <li><h2>Architecture:</li></h2>  
+            <p>During this stage, the Architecture team will create an architecture based on the specifications outlined above.  The architecture is in the form of block diagrams, and we will find out all aspects of the chip.</p>
+            <li><h2>RTL Design:</li></h2>
+            <p>During this stage, the rtl team writes the code based on the aforementioned architecture.  The RTL-code was in a behavioral model.  The code will be written in verilog or VHDL.  The team creates a digital circuit using combinational and sequential logic.</p>
+            <li><h2>RTL Verification:</li></h2>
+           <p>In this stage, the design verification or rtl verification team will come.  The team creates test benches and verifies the code.  If a bug is discovered, then team will notify to the RTL team. </p>
+          <li><h2>Synthesis:</li></h2>
+          <p>In this stage, the rtl code is converted into an optimized gate-level netlist.  Until now, all of the above steps have been technology-independent, but with the synthesis stage, we acquire a technology-dependent file known as a gate-leve netlist. </p>
+            <li><h2>DFT:</li></h2>       
+          <p>At this stage,the DFT team will come. The team will add scan-chains and test logic. And providing different test vectors to the code and verified the functionality. The automated test pattern generator (ATPG) file will be created.</p>
+            <li><h2>FloorPlanning:</li></h2> 
+          <p>During this stage, we define the die area and area.  Also included are io placement, macro placement, voltage area creation (if using a multi-voltage design), and physical only cells.  It generates site rows for the placement of standard cells.</p>
+          <li><h2>PowerPlanning:</li></h2> 
+        <p>We are now working on the chip's power grid architecture. And also Defining IO rings and power pads for the chip. And making power rings and straps for block-level design.</p>
+        <li><h2>Placement:</li></h2>
+        <p>At this stage, the standard cells will be pulled or positioned within the core region by the tool without overlapping.  Here, the standard cells are arranged not ordinarily, but they are based on timing-driven and congestion-driven.</p>        
+         <li><h2>CTS:</li></h2>
+         <p>At this stage, we are creating the physical clock. Until now, the clk has been ideal, but it will be propagated at this stage.  The clock is critical for sequential circuits to function, that's why we design the clock tree with balanced skew and minimal insertion latency. </p>
+       <li><h2>Routing:</li></h2>
+       <p>In this stage, we are connecting metal wires to each cell.  As of right now, all of our connections make logical but we are now physically connected.</p>       
+         <li><h2>Signoff:</li></h2>
+        <p>We do all checks that are prepared for tapeout at this stage, including drc, lvs, timing closure, ERC. A file known as GDSII is created if every check is met.</p>
+      <li><h2>Fabrication:</li></h2>
+       <p>The foundary will use the GDSII file to build the chip at this point. The manufacturing process team will transform the entire design into a chip.</p>
+      <li><h2>Packaging and Testing:</li></h2>
+      <p>At this point, we are testing the chip.  Chips are sent to packaging if they meet all testing cases. If not then we modifies the design by repeating the steps.</p>
+        </ol>
+        </ul>
+       </div>
+          <div class=""><span class=""></span><span></span><span>·</span><time>Aug 2025</time></div>
+        </div>
+      </article>
+
+       <article class="card" data-tags="vlsi" data-title="About Technology related files">
+        <img src="./assets/IMAGES/Input files.png" alt="Input files" width="350" height="250" loading="lazy" />
+        <div class="content">
+          <div class="eyebrow">COREBlog</div>
+          <h3 class="title">About Technology related files</h3>
+          <p class="excerpt">Technology files are important in PD.  This technology file includes design rules, information on metal, and more.  These files help to close the gap between the foundary and design.</p>
+          <span class="readmore" onclick="toggleContent('card2')">Read More</span></p></div>
+       <div id="card2" class="full-content hidden">
+        <ul>
+        <li>Technology related files</li>       
+         <ol>
+          <li>Logical Libraries(.lib or .db):
+        <p>&nbsp; Lib file is a short form of liberty timing file.It is a human-redable format. It contains cell related information like cell name, PG pin name, Area of cell, Leakage power, pin details etc. It also contain timing related information like Setup, hold, timing arcs, transition, wire-load models,Look-up tables for timing and power calculation.</p>
+        </li>
+        <li>Physical Libraries (.LEF):
+            <p>&nbsp; The LEF file is the abstract layout information of std cells. It contains information related to geometry of each cell like cell size, cell name, symmetry of cell,pin information (like pin name, direction of pin). It also contain antenna gate information and rectangular coordinates for metal layer.</p>
+        </li>
+        <li>Technology File(.tf):
+            <p>&nbsp; It contains the information about metal layers, vias and their design rules.It contains information like color and stipple details of metal layers,tile height and width of the std cells,Pitch of metal layer,minwidth of metal layer,blink,pattern,metal layer name,via contactcode,via cut spacing rules,design rules(like windowSize,mindensity,maxdensity,minEnclosure) for metal layers.</p>
+      </li>
+      <li>Tluplus(.tlu+):
+        <p>It contains RC parasitics information to calculate the net delay. Based on different algorithms this file will generate.This file used at placement stage.</p>
+      </li>
+      <li>Map File(.map):
+        <p>It used for mapping the files. For example, the ITF file has the name metal1, but because tlu+ only has M1 at the moment, we utilized this map file.</p>
+      </li>
+         </ol>
+        </ul>
+       </div>
+          <div class=""><span class=""></span><span></span><span></span><time>Aug 2025</time></div>
+        </div>
+      </article>
+      
+      <article class="card" data-tags="vlsi" data-title="Input files for PD">
         <img src="./assets/IMAGES/Input files.png" alt="Inputs" width="350" height="250"loading="lazy" />
         <div class="content">
           <div class="eyebrow">COREBlog</div>
           <h3 class="title">Input files for PD</h3>
           <p class="excerpt">Input files play a crucial part in the development of chips. There are two kinds of files in PD flow. They are technology and design-related files.</p>
-          <span class="readmore" onclick="toggleContent('card1')">Read More</span></p></div>
-       <div id="card1" class="full-content hidden">
+          <span class="readmore" onclick="toggleContent('card2')">Read More</span></p></div>
+       <div id="card2" class="full-content hidden">
         <ul>
             <li>Design Related files</li>
            <ol>
@@ -190,8 +286,8 @@
           <div class="eyebrow">COREBlog</div>
           <h3 class="title">About Technology related files</h3>
           <p class="excerpt">Technology files are important in PD.  This technology file includes design rules, information on metal, and more.  These files help to close the gap between the foundary and design.</p>
-          <span class="readmore" onclick="toggleContent('card2')">Read More</span></p></div>
-       <div id="card2" class="full-content hidden">
+          <span class="readmore" onclick="toggleContent('card3')">Read More</span></p></div>
+       <div id="card3" class="full-content hidden">
         <ul>
         <li>Technology related files</li>       
          <ol>
@@ -217,15 +313,14 @@
         </div>
       </article>
 
-      
       <article class="card" data-tags="vlsi tips" data-title="Macro Guidelines for Floorplanning">
         <img src="./assets/IMAGES/Macro guidlines.png" alt="VLSI floorplan abstract" width="350" height="250" loading="lazy" />
         <div class="content">
           <div class="eyebrow">COREBlog</div>
           <h3 class="title">Macro Guidelines for Floorplanning</h3>
           <p class="excerpt">Macro placement is a crucial step in PD.
-           <span class="readmore" onclick="toggleContent('card3')">Read More</span></p></div>
-      <div id="card3" class="full-content hidden">
+           <span class="readmore" onclick="toggleContent('card4')">Read More</span></p></div>
+      <div id="card4" class="full-content hidden">
         <ul>
           <li>Group the macros by hierarchy.</li>
            &nbsp;<b>Why:</b> If you place macros not by same group hierarchy then wirelength increases which leads to timing violations. And Module Splitting happen which leads to global congestion.
@@ -260,8 +355,8 @@
           <div class="eyebrow">COREBlog</div>
           <h3 class="title">Basic VLSI and synthesis interview questions</h3>
           <p class="excerpt">The following article covers basic vlsi and syntheis interview questions from the beginning.</p>
-           <span class="readmore" onclick="toggleContent('card4')">Read More</span></p></div>
-           <div id="card4" class="full-content hidden">
+           <span class="readmore" onclick="toggleContent('card5')">Read More</span></p></div>
+           <div id="card5" class="full-content hidden">
            <ul>
             <h2>Interview questions for basic vlsi and synthesis</h2>
             <ol>
